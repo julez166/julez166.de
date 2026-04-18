@@ -102,7 +102,7 @@ nav a:hover {
 .hero-small h2 {
     font-size: 3rem;
     color: var(--accent);
-    text-transform: lowercase;
+    text-transform: none;
     letter-spacing: 3px;
     margin: 0;
 }

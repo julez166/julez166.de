@@ -58,21 +58,29 @@ nav a:hover {
 
 /* Hero Section */
 .hero {
-    height: 60vh;
+    height: 80vh; /* Etwas höher für mehr Impact */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+    
+    /* Das Bild-Setup */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background.jpg');
+    background-size: cover;      /* Bild füllt den ganzen Bereich aus */
+    background-position: center; /* Bild bleibt mittig */
+    background-attachment: fixed; /* Erzeugt einen coolen Parallax-Effekt beim Scrollen */
+    
+    border-bottom: 2px solid var(--accent);
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: clamp(3rem, 10vw, 6rem); /* Schriftgröße passt sich dem Bildschirm an */
     margin: 0;
-    background: linear-gradient(to right, #fff, var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(0, 242, 255, 0.5); /* Leichter Glow passend zum Cyan */
 }
 
 /* Cards für Services & Music */

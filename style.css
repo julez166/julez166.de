@@ -58,7 +58,7 @@ nav a:hover {
 
 /* Hero Section */
 .hero {
-    height: 80vh; /* Etwas höher für mehr Impact */
+    height: 60vh; /* Etwas höher für mehr Impact */
     display: flex;
     flex-direction: column;
     justify-content: center;

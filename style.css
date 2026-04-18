@@ -10,7 +10,7 @@
 }
 
 * {
-    box-sizing: border-box; /* Wichtig, damit Padding das Layout nicht zerschießt */
+    box-sizing: border-box;
 }
 
 body {
@@ -19,7 +19,7 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     line-height: 1.6;
-    overflow-x: hidden; /* Verhindert seitliches Scrollen */
+    overflow-x: hidden;
 }
 
 /* 2. NAVIGATION */
@@ -41,6 +41,11 @@ nav {
     font-size: 1.5rem;
     letter-spacing: 2px;
     color: var(--accent);
+    transition: 0.3s;
+}
+
+.logo:hover {
+    opacity: 0.7;
 }
 
 nav ul {
@@ -61,7 +66,7 @@ nav a:hover {
     color: var(--accent);
 }
 
-/* 3. HERO SECTION (DAS BILD) */
+/* 3. HERO SECTION */
 .hero {
     height: 70vh; 
     display: flex;
@@ -69,12 +74,10 @@ nav a:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('background.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    
     border-bottom: 2px solid var(--accent);
     padding: 20px;
 }
@@ -82,16 +85,10 @@ nav a:hover {
 .hero h1 {
     font-size: clamp(2.5rem, 8vw, 5rem);
     margin: 0;
-    text-transform: lowercase; /* Wie in deinem Wunschbild */
+    text-transform: lowercase;
     letter-spacing: 5px;
     color: #fff;
     text-shadow: 0 0 30px rgba(0, 242, 255, 0.4);
-}
-
-.hero p {
-    color: var(--text-dim);
-    font-weight: 300;
-    letter-spacing: 2px;
 }
 
 /* 4. LAYOUT & CARDS */
@@ -128,12 +125,6 @@ nav a:hover {
 .card h3 {
     color: var(--accent);
     margin-top: 0;
-    font-size: 1.5rem;
-}
-
-.card p {
-    color: var(--text-dim);
-    flex-grow: 1; /* Schiebt den Button nach unten */
 }
 
 /* 5. BUTTONS */
@@ -146,48 +137,43 @@ nav a:hover {
     border-radius: 8px;
     font-weight: bold;
     text-align: center;
-    transition: opacity 0.3s;
+    transition: 0.3s;
     margin-top: 20px;
 }
 
 .btn:hover {
-    opacity: 0.8;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--accent);
 }
 
-/* Spezial-Klasse für Reviews (breiter) */
-#reviews {
-    width: 100%;
-    margin-top: 20px;
-}
-
+/* 6. FOOTER & SOCIALS */
 footer {
     background-color: #050505;
-    padding: 40px 20px;
+    padding: 60px 20px;
     border-top: 1px solid #222;
     text-align: center;
-    margin-top: 50px;
 }
 
 .footer-content p {
     color: var(--text-dim);
     font-size: 0.8rem;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     letter-spacing: 1px;
 }
 
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 30px;
 }
 
 .social-links a {
     color: var(--text-main);
-    font-size: 1.5rem; /* Größer als in der Nav */
-    transition: color 0.3s ease, transform 0.3s ease;
+    font-size: 1.8rem; /* Icons etwas markanter */
+    transition: 0.3s ease;
 }
 
 .social-links a:hover {
     color: var(--accent);
-    transform: translateY(-3px); /* Kleiner Sprung-Effekt nach oben */
+    transform: translateY(-5px);
 }

@@ -95,33 +95,11 @@ nav a:hover {
     text-shadow: 0 0 30px rgba(0, 242, 255, 0.4);
 }
 
-.hero-small {
-    padding: 100px 20px 60px;
-    text-align: center;
-    background: linear-gradient(to bottom, #111, #0a0a0a);
-    border-bottom: 1px solid #222;
-}
-
-.hero-small h2 {
-    font-size: 3rem;
-    color: var(--accent);
-    text-transform: none;
-    letter-spacing: 3px;
-    margin: 0;
-}
-
 /* 4. LAYOUT & CARDS */
 .container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 60px 20px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    margin-bottom: 40px;
 }
 
 .card {
@@ -165,26 +143,6 @@ nav a:hover {
     box-shadow: 0 10px 20px rgba(0, 242, 255, 0.2);
 }
 
-.btn:active {
-    transform: translateY(-1px) scale(0.98);
-}
-
-.btn-small {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9rem;
-    margin-top: 15px;
-    display: inline-block;
-    transition: all 0.3s ease;
-}
-
-.btn-small:hover {
-    letter-spacing: 1px;
-    opacity: 0.8;
-    transform: translateX(5px); /* Schiebt sich leicht nach rechts */
-}
-
 /* 6. FOOTER & SOCIALS */
 footer {
     background-color: #050505;
@@ -193,11 +151,42 @@ footer {
     text-align: center;
 }
 
-.footer-content p {
-    color: var(--text-dim);
-    font-size: 0.8rem;
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
     margin-bottom: 25px;
-    letter-spacing: 1px;
 }
 
-.social-links
+/* Social Icons (Instagram/TikTok Look) */
+.social-links a {
+    color: #0022ff; /* Dein ursprüngliches dunkleres Blau */
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.social-links a:hover {
+    color: var(--accent);
+    transform: translateY(-5px);
+}
+
+/* Impressum & Datenschutz Styling */
+.footer-legal {
+    margin-top: 20px;
+}
+
+.footer-link {
+    color: var(--text-dim);
+    text-decoration: none;
+    margin: 0 12px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-link:hover {
+    color: var(--accent); /* Dein leuchtendes Cyan-Blau */
+    transform: translateY(-3px); /* Der Hover-Effekt nach oben */
+    text-shadow: 0 0 8px var(--accent);
+}

@@ -158,17 +158,18 @@ footer {
     margin-bottom: 25px;
 }
 
-/* Social Icons (Instagram/TikTok Look) */
+/* Social Icons Look (Jetzt passend zum Cyan-Accent) */
 .social-links a {
-    color: #0022ff; /* Dein ursprüngliches dunkleres Blau */
+    color: var(--accent); 
     font-size: 1.8rem;
     transition: all 0.3s ease;
     display: inline-block;
 }
 
 .social-links a:hover {
-    color: var(--accent);
-    transform: translateY(-5px);
+    color: #ffffff;
+    transform: translateY(-5px) scale(1.1);
+    filter: drop-shadow(0 0 10px var(--accent));
 }
 
 /* Impressum & Datenschutz Styling */
@@ -186,7 +187,7 @@ footer {
 }
 
 .footer-link:hover {
-    color: var(--accent); /* Dein leuchtendes Cyan-Blau */
-    transform: translateY(-3px); /* Der Hover-Effekt nach oben */
+    color: var(--accent);
+    transform: translateY(-3px);
     text-shadow: 0 0 8px var(--accent);
 }

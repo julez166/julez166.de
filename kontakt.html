@@ -41,7 +41,7 @@
             </div>
             <div style="margin-bottom: 20px;">
                 <label style="display: block; color: var(--accent); margin-bottom: 5px;">Deine Nachricht</label>
-                <textarea name="message" rows="5" placeholder="Erzähl mir von deinem Projekt..." required style="width: 100%; padding: 12px; background: #111; border: 1px solid #333; color: white; border-radius: 8px;"></textarea>
+                <textarea name="message" placeholder="Erzähl mir von deinem Projekt..." required oninput="this.style.height='auto';this.style.height=this.scrollHeight+'px'" style="width: 100%; padding: 12px; background: #111; border: 1px solid #333; color: white; border-radius: 8px; min-height: 120px; resize: none; overflow: hidden;"></textarea>
             </div>
             <button type="submit" class="btn" style="width: 100%; border: none; cursor: pointer;">Nachricht senden</button>
         </form>

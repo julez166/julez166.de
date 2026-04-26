@@ -41,11 +41,13 @@ nav {
     font-size: 1.5rem;
     letter-spacing: 2px;
     color: var(--accent);
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .logo:hover {
     opacity: 0.7;
+    transform: scale(1.05);
 }
 
 nav ul {
@@ -59,14 +61,16 @@ nav a {
     text-decoration: none;
     color: var(--text-main);
     font-size: 0.9rem;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
 nav a:hover {
     color: var(--accent);
+    transform: translateY(-2px);
 }
 
-/* 3. HERO SECTION (STARTSEITE) */
+/* 3. HERO SECTION */
 .hero {
     height: 70vh; 
     display: flex;
@@ -91,7 +95,6 @@ nav a:hover {
     text-shadow: 0 0 30px rgba(0, 242, 255, 0.4);
 }
 
-/* 3.1 HERO SMALL (FÜR UNTERSEITEN MUSIC & REVIEWS) */
 .hero-small {
     padding: 100px 20px 60px;
     text-align: center;
@@ -128,7 +131,7 @@ nav a:hover {
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
 }
@@ -136,21 +139,7 @@ nav a:hover {
 .card:hover {
     transform: translateY(-10px);
     border-color: var(--accent);
-}
-
-.card h3 {
-    color: var(--accent);
-    margin-top: 0;
-}
-
-/* 4.1 SPEZIAL-ELEMENTE IN CARDS */
-.date {
-    font-size: 0.75rem;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-    display: block;
+    box-shadow: 0 25px 50px rgba(0, 242, 255, 0.1);
 }
 
 /* 5. BUTTONS */
@@ -163,13 +152,21 @@ nav a:hover {
     border-radius: 8px;
     font-weight: bold;
     text-align: center;
-    transition: 0.3s;
-    margin-top: auto; /* Schiebt Button immer nach unten */
+    margin-top: auto;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid var(--accent);
+    cursor: pointer;
 }
 
 .btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px var(--accent);
+    background: transparent;
+    color: var(--accent);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 242, 255, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px) scale(0.98);
 }
 
 .btn-small {
@@ -179,11 +176,13 @@ nav a:hover {
     font-size: 0.9rem;
     margin-top: 15px;
     display: inline-block;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
 .btn-small:hover {
     letter-spacing: 1px;
+    opacity: 0.8;
+    transform: translateX(5px); /* Schiebt sich leicht nach rechts */
 }
 
 /* 6. FOOTER & SOCIALS */
@@ -201,19 +200,4 @@ footer {
     letter-spacing: 1px;
 }
 
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-.social-links a {
-    color: var(--text-main);
-    font-size: 1.8rem;
-    transition: 0.3s ease;
-}
-
-.social-links a:hover {
-    color: var(--accent);
-    transform: translateY(-5px);
-}
+.social-links

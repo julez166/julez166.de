@@ -9,10 +9,10 @@
     <style>
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 24px;
             max-width: 1000px;
-            margin: 50px auto;
+            margin: 50px auto 30px;
             padding: 0 20px;
         }
 
@@ -20,22 +20,16 @@
             background: #0e0e0e;
             border: 1px solid #1e1e1e;
             border-radius: 16px;
-            padding: 36px 28px;
+            padding: 32px 24px;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 14px;
             position: relative;
             transition: border-color 0.3s, transform 0.3s;
         }
 
-        .service-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-4px);
-        }
-
-        .service-card.featured {
-            border-color: var(--accent);
-        }
+        .service-card:hover { border-color: #333; transform: translateY(-3px); }
+        .service-card.featured { border-color: var(--accent); }
 
         .service-badge {
             position: absolute;
@@ -53,32 +47,34 @@
             white-space: nowrap;
         }
 
-        .service-icon {
-            font-size: 1.8rem;
-            color: var(--accent);
-        }
-
-        .service-card h3 {
-            font-size: 1.3rem;
-            color: var(--text);
-            margin: 0;
-        }
+        .service-icon { font-size: 1.8rem; color: var(--accent); }
+        .service-card h3 { font-size: 1.2rem; color: var(--text); margin: 0; }
 
         .service-card .price {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--accent);
         }
 
         .service-card .price span {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 400;
             color: var(--text-dim);
         }
 
+        .free-badge {
+            display: inline-block;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-size: 0.72rem;
+            padding: 2px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.05em;
+        }
+
         .service-card p {
             color: var(--text-dim);
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             line-height: 1.7;
             flex-grow: 1;
         }
@@ -89,44 +85,160 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 7px;
         }
 
         .service-features li {
             color: var(--text-dim);
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .service-features li i {
-            color: var(--accent);
-            font-size: 0.75rem;
-            flex-shrink: 0;
-        }
+        .service-features li i { color: var(--accent); font-size: 0.72rem; }
 
-        .service-divider {
-            border: none;
-            border-top: 1px solid #1e1e1e;
-            margin: 4px 0;
-        }
+        .service-divider { border: none; border-top: 1px solid #1e1e1e; margin: 4px 0; }
 
-        .service-card .btn {
-            text-align: center;
-            margin-top: 8px;
-        }
-
-        .free-badge {
-            display: inline-block;
-            background: transparent;
+        .add-to-cart-btn {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
             border: 1px solid var(--accent);
+            background: transparent;
             color: var(--accent);
-            font-size: 0.75rem;
-            padding: 3px 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            margin-top: 8px;
+            letter-spacing: 0.03em;
+        }
+
+        .add-to-cart-btn:hover,
+        .add-to-cart-btn.in-cart {
+            background: var(--accent);
+            color: #000;
+        }
+
+        /* Cart */
+        .cart-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #0a0a0a;
+            border-top: 1px solid var(--accent);
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            z-index: 1000;
+            transform: translateY(100%);
+            transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+        }
+
+        .cart-bar.visible { transform: translateY(0); }
+
+        .cart-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .cart-bar-label {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        .cart-items-list {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .cart-chip {
+            background: #1a1a1a;
+            border: 1px solid #333;
             border-radius: 20px;
-            letter-spacing: 0.05em;
-            margin-top: -4px;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cart-chip-remove {
+            cursor: pointer;
+            color: var(--text-dim);
+            font-size: 0.75rem;
+            transition: color 0.2s;
+        }
+
+        .cart-chip-remove:hover { color: var(--accent); }
+
+        .cart-bar-actions { display: flex; gap: 10px; align-items: center; }
+
+        .cart-total {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+
+        .cart-anfragen-btn {
+            background: var(--accent);
+            color: #000;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: opacity 0.2s;
+        }
+
+        .cart-anfragen-btn:hover { opacity: 0.85; }
+
+        .cart-icon-wrap {
+            position: relative;
+            display: inline-block;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -6px;
+            right: -8px;
+            background: var(--accent);
+            color: #000;
+            font-size: 0.65rem;
+            font-weight: 700;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-bottom-pad { padding-bottom: 100px; }
+
+        .info-note {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            padding: 0 20px 40px;
+        }
+
+        .info-note i { color: var(--accent); margin-right: 6px; }
+
+        @media (max-width: 600px) {
+            .cart-bar { flex-direction: column; align-items: flex-start; }
+            .cart-bar-actions { width: 100%; justify-content: space-between; }
         }
     </style>
 </head>
@@ -145,81 +257,99 @@
 
 <header class="hero-small">
     <h2>Services</h2>
-    <p>Was kann ich für deinen Sound tun?</p>
+    <p>Wähl deinen Service — ich meld mich mit einem Angebot.</p>
 </header>
 
-<div class="services-grid">
+<div class="services-grid page-bottom-pad">
 
-    <!-- Feature -->
-    <div class="service-card">
+    <div class="service-card" id="card-feature">
         <div class="service-icon"><i class="fa-solid fa-microphone-lines"></i></div>
         <h3>Feature</h3>
         <div class="price">Kostenlos <span class="free-badge">gratis</span></div>
         <hr class="service-divider">
-        <p>Du willst mich auf deinem Track? Schreib mir einfach — wenn der Vibe stimmt, bin ich dabei.</p>
+        <p>Du willst mich auf deinem Track? Schreib mir — wenn der Vibe stimmt, bin ich dabei.</p>
         <ul class="service-features">
             <li><i class="fa-solid fa-check"></i> Vocals / Rap / Hook</li>
-            <li><i class="fa-solid fa-check"></i> Kein fixer Ablauf — alles flexibel</li>
+            <li><i class="fa-solid fa-check"></i> Flexibel & individuell</li>
             <li><i class="fa-solid fa-check"></i> Auf Anfrage</li>
         </ul>
-        <a href="kontakt.html" class="btn">Feature anfragen</a>
+        <button class="add-to-cart-btn" onclick="toggleCart('feature', 'Feature', 0, this)">
+            <i class="fa-solid fa-cart-plus"></i> Anfragen
+        </button>
     </div>
 
-    <!-- Mix -->
-    <div class="service-card">
+    <div class="service-card" id="card-mix">
         <div class="service-icon"><i class="fa-solid fa-sliders"></i></div>
         <h3>Mix</h3>
-        <div class="price">ab 20 € <span>/ Track</span></div>
+        <div class="price">ab 49 € <span>/ Track</span></div>
         <hr class="service-divider">
-        <p>Ich bringe deinen Track in Balance — Tiefe, Breite, Punch. Alles individuell auf deinen Style abgestimmt.</p>
+        <p>Stem-basiertes Mixing individuell auf deinen Style abgestimmt — Tiefe, Breite, Punch.</p>
         <ul class="service-features">
             <li><i class="fa-solid fa-check"></i> Stem-basiertes Mixing</li>
-            <li><i class="fa-solid fa-check"></i> Bis zu 3 Revisionen</li>
+            <li><i class="fa-solid fa-check"></i> Bis zu 2 Revisionen</li>
             <li><i class="fa-solid fa-check"></i> WAV-Lieferung</li>
             <li><i class="fa-solid fa-check"></i> Preis auf Anfrage</li>
         </ul>
-        <a href="kontakt.html" class="btn">Mix anfragen</a>
+        <button class="add-to-cart-btn" onclick="toggleCart('mix', 'Mix', 49, this)">
+            <i class="fa-solid fa-cart-plus"></i> In den Warenkorb
+        </button>
     </div>
 
-    <!-- Master -->
-    <div class="service-card">
+    <div class="service-card" id="card-master">
         <div class="service-icon"><i class="fa-solid fa-wave-square"></i></div>
         <h3>Master</h3>
-        <div class="price">ab 10 € <span>/ Track</span></div>
+        <div class="price">ab 29 € <span>/ Track</span></div>
         <hr class="service-divider">
-        <p>Industrie-Standard-Lautstärke, Klarheit und Konsistenz — bereit für Spotify, Apple Music & Co.</p>
+        <p>Industrie-Standard-Lautstärke & Klarheit — bereit für Spotify, Apple Music & Co.</p>
         <ul class="service-features">
             <li><i class="fa-solid fa-check"></i> Streaming-optimiert</li>
             <li><i class="fa-solid fa-check"></i> LUFS-konform</li>
             <li><i class="fa-solid fa-check"></i> WAV + MP3 Lieferung</li>
             <li><i class="fa-solid fa-check"></i> Preis auf Anfrage</li>
         </ul>
-        <a href="kontakt.html" class="btn">Master anfragen</a>
+        <button class="add-to-cart-btn" onclick="toggleCart('master', 'Master', 29, this)">
+            <i class="fa-solid fa-cart-plus"></i> In den Warenkorb
+        </button>
     </div>
 
-    <!-- Mix & Master -->
-    <div class="service-card featured">
+    <div class="service-card featured" id="card-mixmaster">
         <div class="service-badge">⚡ Empfohlen</div>
         <div class="service-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
         <h3>Mix & Master</h3>
-        <div class="price">ab 30 € <span>/ Track</span></div>
+        <div class="price">ab 69 € <span>/ Track</span></div>
         <hr class="service-divider">
-        <p>Das komplette Paket — von rohen Stems zum fertigen, releasefähigen Track. Kein Preset-Müll, sondern dein Sound.</p>
+        <p>Das komplette Paket — von rohen Stems zum fertigen, releasefähigen Track.</p>
         <ul class="service-features">
             <li><i class="fa-solid fa-check"></i> Komplettes Mixing</li>
             <li><i class="fa-solid fa-check"></i> Professionelles Mastering</li>
-            <li><i class="fa-solid fa-check"></i> Bis zu 5 Revisionen</li>
+            <li><i class="fa-solid fa-check"></i> Bis zu 3 Revisionen</li>
             <li><i class="fa-solid fa-check"></i> WAV + MP3 Lieferung</li>
             <li><i class="fa-solid fa-check"></i> Preis auf Anfrage</li>
         </ul>
-        <a href="kontakt.html" class="btn">Paket anfragen</a>
+        <button class="add-to-cart-btn" onclick="toggleCart('mixmaster', 'Mix & Master', 69, this)">
+            <i class="fa-solid fa-cart-plus"></i> In den Warenkorb
+        </button>
     </div>
 
 </div>
 
-<div style="text-align: center; padding-bottom: 60px; color: var(--text-dim); font-size: 0.9rem;">
-    <i class="fa-solid fa-circle-info" style="color: var(--accent); margin-right: 6px;"></i>
+<p class="info-note">
+    <i class="fa-solid fa-circle-info"></i>
     Alle Preise sind Richtwerte — der finale Preis wird individuell abgestimmt.
+</p>
+
+<!-- Cart Bar -->
+<div class="cart-bar" id="cartBar">
+    <div class="cart-bar-left">
+        <span class="cart-bar-label">Deine Auswahl:</span>
+        <div class="cart-items-list" id="cartItemsList"></div>
+    </div>
+    <div class="cart-bar-actions">
+        <span class="cart-total" id="cartTotal"></span>
+        <button class="cart-anfragen-btn" onclick="goToKontakt()">
+            <i class="fa-solid fa-paper-plane"></i> Jetzt anfragen
+        </button>
+    </div>
 </div>
 
 <footer>
@@ -231,5 +361,69 @@
         </div>
     </div>
 </footer>
+
+<script>
+    const cart = {};
+
+    function toggleCart(id, label, price, btn) {
+        if (cart[id]) {
+            delete cart[id];
+            btn.classList.remove('in-cart');
+            btn.innerHTML = id === 'feature'
+                ? '<i class="fa-solid fa-cart-plus"></i> Anfragen'
+                : '<i class="fa-solid fa-cart-plus"></i> In den Warenkorb';
+        } else {
+            cart[id] = { label, price };
+            btn.classList.add('in-cart');
+            btn.innerHTML = '<i class="fa-solid fa-check"></i> Ausgewählt';
+        }
+        updateCartBar();
+    }
+
+    function removeFromCart(id) {
+        if (!cart[id]) return;
+        delete cart[id];
+        const btn = document.querySelector(`#card-${id} .add-to-cart-btn`);
+        if (btn) {
+            btn.classList.remove('in-cart');
+            btn.innerHTML = id === 'feature'
+                ? '<i class="fa-solid fa-cart-plus"></i> Anfragen'
+                : '<i class="fa-solid fa-cart-plus"></i> In den Warenkorb';
+        }
+        updateCartBar();
+    }
+
+    function updateCartBar() {
+        const bar = document.getElementById('cartBar');
+        const list = document.getElementById('cartItemsList');
+        const total = document.getElementById('cartTotal');
+        const items = Object.entries(cart);
+
+        if (items.length === 0) {
+            bar.classList.remove('visible');
+            return;
+        }
+
+        bar.classList.add('visible');
+
+        list.innerHTML = items.map(([id, { label }]) =>
+            `<span class="cart-chip">
+                ${label}
+                <span class="cart-chip-remove" onclick="removeFromCart('${id}')">
+                    <i class="fa-solid fa-xmark"></i>
+                </span>
+            </span>`
+        ).join('');
+
+        const sum = items.reduce((acc, [, { price }]) => acc + price, 0);
+        total.textContent = sum > 0 ? `ab ${sum} €` : 'Kostenlos';
+    }
+
+    function goToKontakt() {
+        const items = Object.values(cart).map(i => i.label).join(', ');
+        const url = `kontakt.html?service=${encodeURIComponent(items)}`;
+        window.location.href = url;
+    }
+</script>
 </body>
 </html>

@@ -102,6 +102,18 @@ nav a:hover {
     padding: 60px 20px;
 }
 
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .card {
     background: var(--card-bg);
     backdrop-filter: blur(15px);

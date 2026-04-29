@@ -55,6 +55,7 @@ nav ul {
     display: flex;
     gap: 30px;
     margin: 0;
+    padding: 0;
 }
 
 nav a {
@@ -134,12 +135,6 @@ nav a:hover {
     gap: 30px;
 }
 
-@media (max-width: 768px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 .card {
     background: var(--card-bg);
     backdrop-filter: blur(15px);
@@ -196,7 +191,6 @@ footer {
     margin-bottom: 25px;
 }
 
-/* Social Icons Look (Jetzt passend zum Cyan-Accent) */
 .social-links a {
     color: var(--accent); 
     font-size: 1.8rem;
@@ -211,7 +205,6 @@ footer {
     text-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent);
 }
 
-/* Impressum & Datenschutz Styling */
 .footer-legal {
     margin-top: 20px;
 }
@@ -229,4 +222,27 @@ footer {
     color: var(--accent);
     transform: translateY(-3px);
     text-shadow: 0 0 8px var(--accent);
+}
+
+/* 7. RESPONSIVE */
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 20px;
+    }
+
+    nav ul {
+        gap: 14px;
+    }
+
+    nav a {
+        font-size: 0.78rem;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
 }

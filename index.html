@@ -59,5 +59,23 @@
         </div>
     </div>
 </footer>
+    <script>
+    const currentPath = window.location.pathname.toLowerCase();
+
+    document.querySelectorAll("nav ul li a").forEach(link => {
+        const href = link.getAttribute("href").toLowerCase();
+
+        if (
+            (currentPath === "/" && href === "../") ||
+
+            (currentPath.includes("/musik/") && href.includes("musik")) ||
+            (currentPath.includes("/services/") && href.includes("services")) ||
+            (currentPath.includes("/kontakt/") && href.includes("kontakt")) ||
+            (currentPath.includes("/ueber-mich/") && href.includes("ueber-mich"))
+        ) {
+            link.classList.add("active");
+        }
+    });
+</script>
 </body>
 </html>

@@ -23,11 +23,13 @@
             text-align: center;
             border: 1px solid #282828;
         }
+
         .spotify-placeholder i {
             font-size: 3.5rem;
             color: #1DB954;
             margin-bottom: 20px;
         }
+
         .spotify-btn-load {
             background: #1DB954;
             color: white;
@@ -40,10 +42,12 @@
             transition: 0.3s;
             text-transform: uppercase;
         }
+
         .spotify-btn-load:hover {
             background: #1ed760;
             transform: scale(1.03);
         }
+
         .privacy-hint {
             margin-top: 15px;
             font-size: 0.75rem;
@@ -53,21 +57,24 @@
     </style>
 </head>
 <body>
+
 <nav>
     <a href="../" style="text-decoration: none;">
         <img src="../logo.png" alt="julez166" class="logo-img">
     </a>
     <ul>
-        <li><a href="../Musik/">Musik</a></li>
+        <li><a href="../musik/">Musik</a></li>
         <li><a href="../services/">Services</a></li>
         <li><a href="../kontakt/">Kontakt</a></li>
         <li><a href="../ueber-mich/">Über mich</a></li>
     </ul>
 </nav>
+
 <header class="hero-small">
     <h2>Meine Musik</h2>
     <p>Check meine neuesten Releases und Produktionen.</p>
 </header>
+
 <div class="container">
     <div class="card" style="max-width: 900px; margin: 0 auto;">
         <h3>Aktueller Release</h3>
@@ -89,6 +96,7 @@
         </a>
     </div>
 </div>
+
 <footer>
     <div class="footer-content">
         <p>© 2026 julez166. All rights reserved.</p>
@@ -121,21 +129,22 @@ function activateSpotify() {
             loading="eager">
         </iframe>`;
 }
-<script>
-    const currentPath = window.location.pathname.toLowerCase();
 
-    document.querySelectorAll("nav ul li a").forEach(link => {
-        const href = link.getAttribute("href").toLowerCase();
+const currentPath = window.location.pathname.toLowerCase();
 
-        if (
-            (currentPath.includes("/musik/") && href.includes("musik")) ||
-            (currentPath.includes("/services/") && href.includes("services")) ||
-            (currentPath.includes("/kontakt/") && href.includes("kontakt")) ||
-            (currentPath.includes("/ueber-mich/") && href.includes("ueber-mich"))
-        ) {
-            link.classList.add("active");
-        }
-    });
+document.querySelectorAll("nav ul li a").forEach(link => {
+    const href = link.getAttribute("href").toLowerCase();
+
+    if (
+        (currentPath.includes("/musik/") && href.includes("musik")) ||
+        (currentPath.includes("/services/") && href.includes("services")) ||
+        (currentPath.includes("/kontakt/") && href.includes("kontakt")) ||
+        (currentPath.includes("/ueber-mich/") && href.includes("ueber-mich"))
+    ) {
+        link.classList.add("active");
+    }
+});
 </script>
+
 </body>
 </html>

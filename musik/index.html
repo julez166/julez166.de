@@ -4,10 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>julez166 | Musik</title>
-    
+    <!-- Open Graph -->
+    <meta property="og:title" content="julez166 | Musik">
+    <meta property="og:description" content="Hör dir die neuesten Releases und Produktionen von julez166 direkt an.">
+    <meta property="og:image" content="https://julez166.de/og-image.png">
+    <meta property="og:url" content="https://julez166.de/musik/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
+    <!-- Twitter/X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="julez166 | Musik">
+    <meta name="twitter:description" content="Hör dir die neuesten Releases und Produktionen von julez166 direkt an.">
+    <meta name="twitter:image" content="https://julez166.de/og-image.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
-
     <style>
         .spotify-placeholder {
             width: 100%;
@@ -23,13 +33,11 @@
             text-align: center;
             border: 1px solid #282828;
         }
-
         .spotify-placeholder i {
             font-size: 3.5rem;
             color: #1DB954;
             margin-bottom: 20px;
         }
-
         .spotify-btn-load {
             background: #1DB954;
             color: white;
@@ -42,12 +50,10 @@
             transition: 0.3s;
             text-transform: uppercase;
         }
-
         .spotify-btn-load:hover {
             background: #1ed760;
             transform: scale(1.03);
         }
-
         .privacy-hint {
             margin-top: 15px;
             font-size: 0.75rem;
@@ -79,7 +85,6 @@
     <div class="card" style="max-width: 900px; margin: 0 auto;">
         <h3>Aktueller Release</h3>
         <p style="margin-bottom: 20px;">Hör dir meinen neuesten Sound direkt hier an:</p>
-
         <div id="spotify-wrapper">
             <div class="spotify-placeholder">
                 <i class="fa-brands fa-spotify"></i>
@@ -90,7 +95,6 @@
                 </p>
             </div>
         </div>
-
         <a href="https://open.spotify.com/artist/5xeb93IaCdk9h8VMCqelKY" target="_blank" rel="noopener noreferrer" class="btn" style="width: 100%; margin-top: 16px; display: inline-block; text-align: center;">
             <i class="fa-brands fa-spotify"></i> Auf Spotify folgen
         </a>
@@ -116,36 +120,15 @@
 <script>
 function activateSpotify() {
     var embedUrl = "https://open.spotify.com/embed/artist/5xeb93IaCdk9h8VMCqelKY?theme=0";
-    
-    var wrapper = document.getElementById('spotify-wrapper');
-    wrapper.innerHTML = `
-        <iframe
-            style="border-radius:12px; display:block;"
-            src="${embedUrl}"
-            width="100%"
-            height="500"
-            frameBorder="0"
-            allowfullscreen=""
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="eager">
-        </iframe>`;
+    document.getElementById('spotify-wrapper').innerHTML = `<iframe style="border-radius:12px; display:block;" src="${embedUrl}" width="100%" height="500" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="eager"></iframe>`;
 }
-
 const currentPath = window.location.pathname.toLowerCase();
-
 document.querySelectorAll("nav ul li a").forEach(link => {
     const href = link.getAttribute("href").toLowerCase();
-
-    if (
-        (currentPath.includes("/musik/") && href.includes("musik")) ||
-        (currentPath.includes("/services/") && href.includes("services")) ||
-        (currentPath.includes("/kontakt/") && href.includes("kontakt")) ||
-        (currentPath.includes("/ueber-mich/") && href.includes("ueber-mich"))
-    ) {
+    if ((currentPath.includes("/musik/") && href.includes("musik")) || (currentPath.includes("/services/") && href.includes("services")) || (currentPath.includes("/kontakt/") && href.includes("kontakt")) || (currentPath.includes("/ueber-mich/") && href.includes("ueber-mich"))) {
         link.classList.add("active");
     }
 });
 </script>
-
 </body>
 </html>

@@ -4,20 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>julez166 | Datenschutz</title>
-    <!-- Open Graph -->
     <meta property="og:title" content="julez166 | Datenschutz">
     <meta property="og:description" content="Datenschutzerklärung von julez166 – Artist, Mix & Master Engineer.">
     <meta property="og:image" content="https://julez166.de/og-image.png?v=2">
     <meta property="og:url" content="https://julez166.de/datenschutz/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="de_DE">
-    <!-- Twitter/X Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="julez166 | Datenschutz">
     <meta name="twitter:description" content="Datenschutzerklärung von julez166 – Artist, Mix & Master Engineer.">
     <meta name="twitter:image" content="https://julez166.de/og-image.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="/style.css">
     <style>
         .privacy-content { max-width: 900px; margin: 60px auto; padding: 40px; background: #111; border-radius: 16px; border: 1px solid #222; }
         .privacy-content h1 { color: var(--accent); margin-bottom: 30px; font-size: 2.5rem; }
@@ -32,17 +30,26 @@
     </style>
 </head>
 <body>
-<nav>
-    <a href="../" style="text-decoration: none;">
-        <img src="../logo.png" alt="julez166" class="logo-img">
-    </a>
-    <ul>
-        <li><a href="../musik/">Musik</a></li>
-        <li><a href="../services/">Services</a></li>
-        <li><a href="../kontakt/">Kontakt</a></li>
-        <li><a href="../ueber-mich/">Über mich</a></li>
-    </ul>
-</nav>
+<div id="nav-placeholder"></div>
+<script>
+    fetch('/nav.html')
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById('nav-placeholder').innerHTML = html;
+            const currentPath = window.location.pathname.toLowerCase();
+            document.querySelectorAll('#nav-placeholder nav ul li a').forEach(link => {
+                const href = link.getAttribute('href').toLowerCase();
+                if (
+                    (currentPath.includes('/musik/') && href.includes('musik')) ||
+                    (currentPath.includes('/services/') && href.includes('services')) ||
+                    (currentPath.includes('/kontakt/') && href.includes('kontakt')) ||
+                    (currentPath.includes('/ueber-mich/') && href.includes('ueber-mich'))
+                ) {
+                    link.classList.add('active');
+                }
+            });
+        });
+</script>
 <div class="container">
     <div class="privacy-content">
         <h1>Datenschutzerklärung</h1>
@@ -86,13 +93,11 @@
         <p>Weitere Informationen zum Datenschutz bei Spotify finden Sie unter: <a href="https://www.spotify.com/de/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">https://www.spotify.com/de/legal/privacy-policy/</a></p>
         <h3>Google Fonts (Lokales Hosting)</h3>
         <p>Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten Google Fonts, die lokal auf unserem Server installiert sind. Eine Verbindung zu Servern von Google findet nicht statt.</p>
-
         <h2>7. Kontaktformular und E-Mail-Kontakt</h2>
         <h3>Kontaktformular</h3>
         <p>Wenn Sie uns über das Kontaktformular auf unserer Website eine Anfrage zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen angegebenen Kontaktdaten (Name, E-Mail-Adresse, Nachricht) zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
         <p>Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), sofern diese abgefragt wurde.</p>
         <p>Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt. Zwingende gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen – bleiben unberührt.</p>
-
         <h3>E-Mail-Archivierung über IONOS</h3>
         <div class="responsible-box">
             <span class="legal-tag">Auftragsverarbeitung · Art. 28 DSGVO</span><br>
@@ -101,7 +106,6 @@
         <p>Für den rechtskonformen Betrieb unseres E-Mail-Verkehrs – insbesondere der über das Kontaktformular eingehenden Nachrichten – nutzen wir das E-Mail-Archivierungssystem der IONOS SE. Dies dient der Erfüllung unserer steuer- und handelsrechtlichen Aufbewahrungspflichten gemäß §§ 147 AO und 257 HGB (GoBD).</p>
         <p>Alle ein- und ausgehenden E-Mails werden dabei revisionssicher archiviert. <strong>Rechtsgrundlage</strong> für diese Verarbeitung ist Art. 6 Abs. 1 lit. c DSGVO (Erfüllung einer rechtlichen Verpflichtung).</p>
         <p>Wir haben mit IONOS einen Vertrag zur Auftragsverarbeitung (AVV) gemäß Art. 28 DSGVO geschlossen, um den Schutz Ihrer Daten sicherzustellen. Die archivierten E-Mails werden nach Ablauf der gesetzlichen Aufbewahrungsfristen (in der Regel 10 Jahre) automatisch gelöscht.</p>
-
         <h2>8. Ihre Rechte</h2>
         <p>Sie haben jederzeit das Recht auf unentgeltliche <strong>Auskunft</strong> über Ihre gespeicherten personenbezogenen Daten sowie ein Recht auf <strong>Berichtigung</strong> oder <strong>Löschung</strong> dieser Daten.</p>
         <p style="margin-top: 50px; font-size: 0.8rem; color: #555;">Quelle: eRecht24</p>
@@ -116,20 +120,11 @@
             <a href="https://discord.gg/QxgVmdKx9" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-discord"></i></a>
         </div>
         <div class="footer-legal">
-            <a href="../impressum/" class="footer-link">Impressum</a>
-            <a href="../datenschutz/" class="footer-link">Datenschutz</a>
-            <a href="../agb/" class="footer-link">AGB</a>
+            <a href="/impressum/" class="footer-link">Impressum</a>
+            <a href="/datenschutz/" class="footer-link">Datenschutz</a>
+            <a href="/agb/" class="footer-link">AGB</a>
         </div>
     </div>
 </footer>
-<script>
-    const currentPath = window.location.pathname.toLowerCase();
-    document.querySelectorAll("nav ul li a").forEach(link => {
-        const href = link.getAttribute("href").toLowerCase();
-        if ((currentPath.includes("/musik/") && href.includes("musik")) || (currentPath.includes("/services/") && href.includes("services")) || (currentPath.includes("/kontakt/") && href.includes("kontakt")) || (currentPath.includes("/ueber-mich/") && href.includes("ueber-mich"))) {
-            link.classList.add("active");
-        }
-    });
-</script>
 </body>
 </html>

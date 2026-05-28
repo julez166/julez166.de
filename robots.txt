@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /impressum/
+Disallow: /datenschutz/
+Disallow: /agb/
+
+Sitemap: https://julez166.de/sitemap.xml

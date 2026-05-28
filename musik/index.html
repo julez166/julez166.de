@@ -4,83 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>julez166 | Musik</title>
-    <!-- Open Graph -->
     <meta property="og:title" content="julez166 | Musik">
     <meta property="og:description" content="Hör dir die neuesten Releases und Produktionen von julez166 direkt an.">
     <meta property="og:image" content="https://julez166.de/og-image.png?v=2">
     <meta property="og:url" content="https://julez166.de/musik/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="de_DE">
-    <!-- Twitter/X Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="julez166 | Musik">
     <meta name="twitter:description" content="Hör dir die neuesten Releases und Produktionen von julez166 direkt an.">
     <meta name="twitter:image" content="https://julez166.de/og-image.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="/style.css">
     <style>
-        .spotify-placeholder {
-            width: 100%;
-            height: 500px;
-            background: #121212;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            border: 1px solid #282828;
-        }
-        .spotify-placeholder i {
-            font-size: 3.5rem;
-            color: #1DB954;
-            margin-bottom: 20px;
-        }
-        .spotify-btn-load {
-            background: #1DB954;
-            color: white;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 500px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1rem;
-            transition: 0.3s;
-            text-transform: uppercase;
-        }
-        .spotify-btn-load:hover {
-            background: #1ed760;
-            transform: scale(1.03);
-        }
-        .privacy-hint {
-            margin-top: 15px;
-            font-size: 0.75rem;
-            color: #b3b3b3;
-            max-width: 300px;
-        }
+        .spotify-placeholder { width: 100%; height: 500px; background: #121212; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 12px; padding: 20px; text-align: center; border: 1px solid #282828; }
+        .spotify-placeholder i { font-size: 3.5rem; color: #1DB954; margin-bottom: 20px; }
+        .spotify-btn-load { background: #1DB954; color: white; border: none; padding: 14px 28px; border-radius: 500px; cursor: pointer; font-weight: bold; font-size: 1rem; transition: 0.3s; text-transform: uppercase; }
+        .spotify-btn-load:hover { background: #1ed760; transform: scale(1.03); }
+        .privacy-hint { margin-top: 15px; font-size: 0.75rem; color: #b3b3b3; max-width: 300px; }
     </style>
 </head>
 <body>
-
-<nav>
-    <a href="../" style="text-decoration: none;">
-        <img src="../logo.png" alt="julez166" class="logo-img">
-    </a>
-    <ul>
-        <li><a href="../musik/">Musik</a></li>
-        <li><a href="../services/">Services</a></li>
-        <li><a href="../kontakt/">Kontakt</a></li>
-        <li><a href="../ueber-mich/">Über mich</a></li>
-    </ul>
-</nav>
-
+<div id="nav-placeholder"></div>
+<script>
+    fetch('/nav.html')
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById('nav-placeholder').innerHTML = html;
+            const currentPath = window.location.pathname.toLowerCase();
+            document.querySelectorAll('#nav-placeholder nav ul li a').forEach(link => {
+                const href = link.getAttribute('href').toLowerCase();
+                if (
+                    (currentPath.includes('/musik/') && href.includes('musik')) ||
+                    (currentPath.includes('/services/') && href.includes('services')) ||
+                    (currentPath.includes('/kontakt/') && href.includes('kontakt')) ||
+                    (currentPath.includes('/ueber-mich/') && href.includes('ueber-mich'))
+                ) {
+                    link.classList.add('active');
+                }
+            });
+        });
+</script>
 <header class="hero-small">
     <h2>Meine Musik</h2>
     <p>Check meine neuesten Releases und Produktionen.</p>
 </header>
-
 <div class="container">
     <div class="card" style="max-width: 900px; margin: 0 auto;">
         <h3>Aktueller Release</h3>
@@ -91,7 +59,7 @@
                 <button class="spotify-btn-load" onclick="activateSpotify()">Player laden</button>
                 <p class="privacy-hint">
                     Mit Klick auf „Player laden" akzeptierst du die Datenschutzbestimmungen von Spotify und dass externe Inhalte (inkl. deiner IP-Adresse) an Spotify übertragen werden.
-                    Mehr dazu in unserer <a href="../datenschutz/" style="color: #1DB954;">Datenschutzerklärung</a>.
+                    Mehr dazu in unserer <a href="/datenschutz/" style="color: #1DB954;">Datenschutzerklärung</a>.
                 </p>
             </div>
         </div>
@@ -100,7 +68,6 @@
         </a>
     </div>
 </div>
-
 <footer>
     <div class="footer-content">
         <p>&copy; 2026 julez166. All rights reserved.</p>
@@ -110,25 +77,17 @@
             <a href="https://discord.gg/QxgVmdKx9" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-discord"></i></a>
         </div>
         <div class="footer-legal">
-            <a href="../impressum/" class="footer-link">Impressum</a>
-            <a href="../datenschutz/" class="footer-link">Datenschutz</a>
-            <a href="../agb/" class="footer-link">AGB</a>
+            <a href="/impressum/" class="footer-link">Impressum</a>
+            <a href="/datenschutz/" class="footer-link">Datenschutz</a>
+            <a href="/agb/" class="footer-link">AGB</a>
         </div>
     </div>
 </footer>
-
 <script>
 function activateSpotify() {
     var embedUrl = "https://open.spotify.com/embed/artist/5xeb93IaCdk9h8VMCqelKY?theme=0";
     document.getElementById('spotify-wrapper').innerHTML = `<iframe style="border-radius:12px; display:block;" src="${embedUrl}" width="100%" height="500" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="eager"></iframe>`;
 }
-const currentPath = window.location.pathname.toLowerCase();
-document.querySelectorAll("nav ul li a").forEach(link => {
-    const href = link.getAttribute("href").toLowerCase();
-    if ((currentPath.includes("/musik/") && href.includes("musik")) || (currentPath.includes("/services/") && href.includes("services")) || (currentPath.includes("/kontakt/") && href.includes("kontakt")) || (currentPath.includes("/ueber-mich/") && href.includes("ueber-mich"))) {
-        link.classList.add("active");
-    }
-});
 </script>
 </body>
 </html>

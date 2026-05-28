@@ -4,175 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>julez166 | Über mich</title>
-    <!-- Open Graph -->
     <meta property="og:title" content="julez166 | Über mich">
     <meta property="og:description" content="Artist, Mix & Master Engineer aus München. Lern den Menschen hinter julez166 kennen.">
     <meta property="og:image" content="https://julez166.de/og-image.png?v=2">
     <meta property="og:url" content="https://julez166.de/ueber-mich/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="de_DE">
-    <!-- Twitter/X Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="julez166 | Über mich">
     <meta name="twitter:description" content="Artist, Mix & Master Engineer aus München. Lern den Menschen hinter julez166 kennen.">
     <meta name="twitter:image" content="https://julez166.de/og-image.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="/style.css">
     <style>
-        .about-section {
-            max-width: 900px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.6fr;
-            gap: 40px;
-            align-items: start;
-        }
-        .about-photo-wrapper {
-            position: relative;
-        }
-        .about-photo {
-            width: 100%;
-            aspect-ratio: 3/4;
-            background: #111;
-            border-radius: 16px;
-            border: 1px solid #222;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #444;
-            font-size: 0.85rem;
-            gap: 12px;
-        }
-        .about-photo i {
-            font-size: 2.5rem;
-            color: #333;
-        }
-        .about-photo-accent {
-            position: absolute;
-            top: -6px;
-            left: -6px;
-            width: 60px;
-            height: 60px;
-            border-top: 2px solid var(--accent);
-            border-left: 2px solid var(--accent);
-            border-radius: 4px;
-        }
-        .about-photo-accent-br {
-            position: absolute;
-            bottom: -6px;
-            right: -6px;
-            width: 60px;
-            height: 60px;
-            border-bottom: 2px solid var(--accent);
-            border-right: 2px solid var(--accent);
-            border-radius: 4px;
-        }
-        .about-text h2 {
-            font-size: 2rem;
-            color: var(--accent);
-            margin-bottom: 8px;
-        }
-        .about-text .subtitle {
-            color: var(--text-dim);
-            font-size: 0.95rem;
-            margin-bottom: 28px;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-        .about-text p {
-            color: var(--text-dim);
-            line-height: 1.8;
-            margin-bottom: 18px;
-            font-size: 1rem;
-        }
-        .about-text p strong {
-            color: #fff;
-        }
-        .about-divider {
-            width: 40px;
-            height: 2px;
-            background: var(--accent);
-            margin: 28px 0;
-        }
-        .about-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 28px;
-        }
-        .about-tag {
-            background: #111;
-            border: 1px solid #2a2a2a;
-            color: var(--accent);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            letter-spacing: 0.05em;
-        }
-        @media (max-width: 680px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-            .about-photo {
-                aspect-ratio: 4/3;
-            }
-        }
+        .about-section { max-width: 900px; margin: 60px auto; padding: 0 20px; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 40px; align-items: start; }
+        .about-photo-wrapper { position: relative; }
+        .about-photo { width: 100%; aspect-ratio: 3/4; background: #111; border-radius: 16px; border: 1px solid #222; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #444; font-size: 0.85rem; gap: 12px; }
+        .about-photo i { font-size: 2.5rem; color: #333; }
+        .about-photo-accent { position: absolute; top: -6px; left: -6px; width: 60px; height: 60px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); border-radius: 4px; }
+        .about-photo-accent-br { position: absolute; bottom: -6px; right: -6px; width: 60px; height: 60px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); border-radius: 4px; }
+        .about-text h2 { font-size: 2rem; color: var(--accent); margin-bottom: 8px; }
+        .about-text .subtitle { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 28px; letter-spacing: 0.05em; text-transform: uppercase; }
+        .about-text p { color: var(--text-dim); line-height: 1.8; margin-bottom: 18px; font-size: 1rem; }
+        .about-text p strong { color: #fff; }
+        .about-divider { width: 40px; height: 2px; background: var(--accent); margin: 28px 0; }
+        .about-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+        .about-tag { background: #111; border: 1px solid #2a2a2a; color: var(--accent); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; letter-spacing: 0.05em; }
+        @media (max-width: 680px) { .about-grid { grid-template-columns: 1fr; } .about-photo { aspect-ratio: 4/3; } }
     </style>
 </head>
 <body>
-<nav>
-    <a href="../" style="text-decoration: none;">
-        <img src="../logo.png" alt="julez166" class="logo-img">
-    </a>
-    <ul>
-        <li><a href="../musik/">Musik</a></li>
-        <li><a href="../services/">Services</a></li>
-        <li><a href="../kontakt/">Kontakt</a></li>
-        <li><a href="../ueber-mich/">Über mich</a></li>
-    </ul>
-</nav>
-
+<div id="nav-placeholder"></div>
+<script>
+    fetch('/nav.html')
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById('nav-placeholder').innerHTML = html;
+            const currentPath = window.location.pathname.toLowerCase();
+            document.querySelectorAll('#nav-placeholder nav ul li a').forEach(link => {
+                const href = link.getAttribute('href').toLowerCase();
+                if (
+                    (currentPath.includes('/musik/') && href.includes('musik')) ||
+                    (currentPath.includes('/services/') && href.includes('services')) ||
+                    (currentPath.includes('/kontakt/') && href.includes('kontakt')) ||
+                    (currentPath.includes('/ueber-mich/') && href.includes('ueber-mich'))
+                ) {
+                    link.classList.add('active');
+                }
+            });
+        });
+</script>
 <header class="hero-small">
     <h2>Über mich</h2>
     <p>Wer steckt hinter julez166?</p>
 </header>
-
 <div class="about-section">
     <div class="about-grid">
         <div class="about-photo-wrapper">
-            <img src="../DEIN-FOTO.jpg" alt="julez166" style="width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:16px; border:1px solid #222;">
+            <img src="/DEIN-FOTO.jpg" alt="julez166" style="width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:16px; border:1px solid #222;">
             <div class="about-photo-accent"></div>
             <div class="about-photo-accent-br"></div>
         </div>
         <div class="about-text">
             <h2>julez166</h2>
             <p class="subtitle">Artist · Mix & Master Engineer</p>
-            <p>
-                Musik ist für mich mehr als nur Sound — <strong>es ist Selbstausdruck, Handwerk und Leidenschaft in einem.</strong> Ich mache Musik, weil ich gar nicht anders kann. Weil es der einzige Weg ist, Dinge zu sagen, die sich in Worte allein nicht fassen lassen.
-            </p>
+            <p>Musik ist für mich mehr als nur Sound — <strong>es ist Selbstausdruck, Handwerk und Leidenschaft in einem.</strong> Ich mache Musik, weil ich gar nicht anders kann. Weil es der einzige Weg ist, Dinge zu sagen, die sich in Worte allein nicht fassen lassen.</p>
             <div class="about-divider"></div>
-            <p>
-                Als Artist kenne ich beide Seiten des Studios: <strong>die kreative und die technische.</strong> Ich weiß, wie es sich anfühlt, wenn ein Track noch nicht das widerspiegelt, was man im Kopf hat — und ich weiß, wie man das ändert. Genau das bringe ich in jedes Projekt mit ein.
-            </p>
-            <p>
-                Meine Services sind deshalb kein Standard-Angebot. <strong>Ich arbeite mit dir, nicht nur für dich.</strong> Ziel ist immer dasselbe: dein Sound soll klingen, wie du klingst — nur auf dem nächsten Level.
-            </p>
+            <p>Als Artist kenne ich beide Seiten des Studios: <strong>die kreative und die technische.</strong> Ich weiß, wie es sich anfühlt, wenn ein Track noch nicht das widerspiegelt, was man im Kopf hat — und ich weiß, wie man das ändert. Genau das bringe ich in jedes Projekt mit ein.</p>
+            <p>Meine Services sind deshalb kein Standard-Angebot. <strong>Ich arbeite mit dir, nicht nur für dich.</strong> Ziel ist immer dasselbe: dein Sound soll klingen, wie du klingst — nur auf dem nächsten Level.</p>
             <div class="about-tags">
                 <span class="about-tag">Music Production</span>
                 <span class="about-tag">Mix & Mastering</span>
                 <span class="about-tag">Independent Artist</span>
             </div>
-            <a href="../kontakt/" class="btn" style="margin-top: 32px; display: inline-block;">
+            <a href="/kontakt/" class="btn" style="margin-top: 32px; display: inline-block;">
                 <i class="fa-solid fa-envelope" style="margin-right: 8px;"></i> Projekt anfragen
             </a>
         </div>
     </div>
 </div>
-
 <footer>
     <div class="footer-content">
         <p>&copy; 2026 julez166. All rights reserved.</p>
@@ -182,26 +93,11 @@
             <a href="https://discord.gg/QxgVmdKx9" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-discord"></i></a>
         </div>
         <div class="footer-legal">
-            <a href="../impressum/" class="footer-link">Impressum</a>
-            <a href="../datenschutz/" class="footer-link">Datenschutz</a>
-            <a href="../agb/" class="footer-link">AGB</a>
+            <a href="/impressum/" class="footer-link">Impressum</a>
+            <a href="/datenschutz/" class="footer-link">Datenschutz</a>
+            <a href="/agb/" class="footer-link">AGB</a>
         </div>
     </div>
 </footer>
-
-<script>
-    const currentPath = window.location.pathname.toLowerCase();
-    document.querySelectorAll("nav ul li a").forEach(link => {
-        const href = link.getAttribute("href").toLowerCase();
-        if (
-            (currentPath.includes("/musik/") && href.includes("musik")) ||
-            (currentPath.includes("/services/") && href.includes("services")) ||
-            (currentPath.includes("/kontakt/") && href.includes("kontakt")) ||
-            (currentPath.includes("/ueber-mich/") && href.includes("ueber-mich"))
-        ) {
-            link.classList.add("active");
-        }
-    });
-</script>
 </body>
 </html>

@@ -4,35 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>julez166 | Kontakt</title>
-    <!-- Open Graph -->
     <meta property="og:title" content="julez166 | Kontakt">
     <meta property="og:description" content="Projekt anfragen, Feature anfragen oder einfach melden — ich freu mich auf deine Nachricht.">
     <meta property="og:image" content="https://julez166.de/og-image.png?v=2">
     <meta property="og:url" content="https://julez166.de/kontakt/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="de_DE">
-    <!-- Twitter/X Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="julez166 | Kontakt">
     <meta name="twitter:description" content="Projekt anfragen, Feature anfragen oder einfach melden — ich freu mich auf deine Nachricht.">
     <meta name="twitter:image" content="https://julez166.de/og-image.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-
 <div id="nav-placeholder"></div>
 <script>
     fetch('/nav.html')
         .then(res => res.text())
         .then(html => {
             document.getElementById('nav-placeholder').innerHTML = html;
-
             const currentPath = window.location.pathname.toLowerCase();
-
             document.querySelectorAll('#nav-placeholder nav ul li a').forEach(link => {
                 const href = link.getAttribute('href').toLowerCase();
-
                 if (
                     (currentPath.includes('/musik/') && href.includes('musik')) ||
                     (currentPath.includes('/services/') && href.includes('services')) ||
@@ -44,12 +43,10 @@
             });
         });
 </script>
-
 <header class="hero-small">
     <h2>Verbessere jetzt deinen Sound!</h2>
     <p>Lass uns an deinem nächsten Projekt arbeiten.</p>
 </header>
-
 <div class="container">
     <div class="card" style="max-width: 600px; margin: 0 auto;">
         <form action="https://formspree.io/f/mkokevgd" method="POST">
@@ -74,7 +71,6 @@
         </form>
     </div>
 </div>
-
 <footer>
     <div class="footer-content">
         <p>&copy; 2026 julez166. All rights reserved.</p>
@@ -90,15 +86,10 @@
         </div>
     </div>
 </footer>
-
 <script>
     const params = new URLSearchParams(window.location.search);
     const service = params.get('service');
-
-    if (service) {
-        document.getElementById('serviceField').value = service;
-    }
+    if (service) document.getElementById('serviceField').value = service;
 </script>
-
 </body>
 </html>

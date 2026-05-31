@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ – Häufige Fragen | julez166</title>
+    <meta name="description" content="Häufig gestellte Fragen zu Mixing, Mastering, Preisen und Ablauf — alles Wichtige zu den Services von julez166.">
+    <meta property="og:title" content="julez166 | FAQ">
+    <meta property="og:description" content="Häufig gestellte Fragen zu Mixing, Mastering, Preisen und Ablauf.">
+    <meta property="og:image" content="https://julez166.de/og-image.png?v=2">
+    <meta property="og:url" content="https://julez166.de/faq/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="julez166 | FAQ">
+    <meta name="twitter:description" content="Häufig gestellte Fragen zu Mixing, Mastering, Preisen und Ablauf.">
+    <meta name="twitter:image" content="https://julez166.de/og-image.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .faq-section { max-width: 800px; margin: 60px auto; padding: 0 20px 80px; }
+        .faq-category { margin-bottom: 48px; }
+        .faq-category-title {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .faq-category-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #222;
+        }
+        .faq-item {
+            border: 1px solid #1e1e1e;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            transition: border-color 0.25s;
+        }
+        .faq-item.open {
+            border-color: #2a2a2a;
+        }
+        .faq-question {
+            width: 100%;
+            background: #0e0e0e;
+            border: none;
+            padding: 18px 20px;
+            text-align: left;
+            color: var(--text-main);
+            font-size: 0.97rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            transition: background 0.2s;
+        }
+        .faq-question:hover { background: #111; }
+        .faq-question i {
+            color: var(--accent);
+            font-size: 0.8rem;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+        .faq-item.open .faq-question i { transform: rotate(180deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1), padding 0.25s;
+            background: #0a0a0a;
+            padding: 0 20px;
+        }
+        .faq-answer-inner {
+            padding: 16px 0 20px;
+            color: var(--text-dim);
+            font-size: 0.92rem;
+            line-height: 1.8;
+        }
+        .faq-answer-inner strong { color: #fff; }
+        .faq-answer-inner a { color: var(--accent); text-decoration: none; }
+        .faq-answer-inner a:hover { text-decoration: underline; }
+        .faq-cta {
+            text-align: center;
+            padding: 48px 20px;
+            border-top: 1px solid #1a1a1a;
+        }
+        .faq-cta p { color: var(--text-dim); margin-bottom: 20px; font-size: 0.97rem; }
+    </style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<script>
+    fetch('/nav.html')
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById('nav-placeholder').innerHTML = html;
+            const currentPath = window.location.pathname.toLowerCase();
+            document.querySelectorAll('#nav-placeholder nav ul li a').forEach(link => {
+                const href = link.getAttribute('href').toLowerCase();
+                if (
+                    (currentPath.includes('/musik/') && href.includes('musik')) ||
+                    (currentPath.includes('/services/') && href.includes('services')) ||
+                    (currentPath.includes('/kontakt/') && href.includes('kontakt')) ||
+                    (currentPath.includes('/ueber-mich/') && href.includes('ueber-mich'))
+                ) {
+                    link.classList.add('active');
+                }
+            });
+        });
+</script>
+
+<header class="hero-small">
+    <h2>FAQ</h2>
+    <p>Häufig gestellte Fragen — direkt beantwortet.</p>
+</header>
+
+<div class="faq-section">
+
+    <!-- ALLGEMEIN -->
+    <div class="faq-category">
+        <div class="faq-category-title"><i class="fa-solid fa-circle-question"></i> Allgemein</div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                Was ist der Unterschied zwischen Mixing und Mastering?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    <strong>Mixing</strong> bedeutet, alle einzelnen Spuren (Stems) eines Tracks — Vocals, Drums, Bass, Synths usw. — zusammenzufügen, zu balancieren und klanglich zu formen. Ziel ist ein kohärenter, druckvoller Sound, der den Vibe des Tracks transportiert.<br><br>
+                    <strong>Mastering</strong> ist der letzte Schritt: Der fertige Mix wird als Ganzes optimiert — Lautstärke, Dynamik, Tonalität — damit er auf allen Plattformen (Spotify, Apple Music, YouTube etc.) professionell und konkurrenzfähig klingt.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                Für welche Genres arbeitest du?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    Mein Schwerpunkt liegt auf <strong>Rap, Trap, R&B und Hyperpop</strong> — also allem, was im weitesten Sinne im urbanen Bereich liegt. Grundsätzlich bin ich aber offen für andere Genres, sofern der Vibe stimmt. Im Zweifel einfach anfragen.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                Wie läuft ein Projekt ab?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    1. Du schickst mir über das <a href="/kontakt/">Kontaktformular</a> eine Anfrage mit deinem gewünschten Service und einer kurzen Beschreibung deines Projekts.<br><br>
+                    2. Ich melde mich mit einem individuellen Angebot. Erst wenn alles passt, geht's los.<br><br>
+                    3. Du schickst mir deine Dateien (Stems oder Mixdown) — z.B. per WeTransfer oder Google Drive.<br><br>
+                    4. Du bekommst eine Vorschauversion zum Abhören. Änderungswünsche kannst du im Rahmen der enthaltenen Revisionen einbringen.<br><br>
+                    5. Nach finaler Abnahme erfolgt die Zahlung — danach liefere ich die finale hochauflösende Version.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DATEIEN & TECHNIK -->
+    <div class="faq-category">
+        <div class="faq-category-title"><i class="fa-solid fa-file-audio"></i> Dateien & Technik</div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                Was für Dateien soll ich einschicken?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    Für ein <strong>Mixing</strong>: einzelne Stems als <strong>WAV oder AIFF</strong>, möglichst 24-bit, 44.1 kHz oder höher. Alle Spuren sollten auf denselben Startpunkt exportiert sein, damit alles zeitlich passt.<br><br>
+                    Für ein <strong>Mastering</strong>: den fertigen Stereo-Mix als <strong>WAV oder AIFF</strong>, 24-bit, ohne Limiter oder Maximizer auf dem Master-Bus — das übernehme ich.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                In welchem Format bekomme ich den fertigen Track zurück?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    Standard ist <strong>WAV (24-bit)</strong> für die Archivierung und eine <strong>MP3 (320 kbps)</strong> für direkte Nutzung / Upload. Falls du ein spezifisches Format brauchst, einfach bei der Anfrage angeben.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                Muss ich professionelle Studio-Aufnahmen haben?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    Nein — aber die Qualität des Ausgangsmaterials beeinflusst das Ergebnis. Mixing und Mastering können viel rausholen, aber technische Probleme wie starkes Rauschen, Clipping oder schlechte Aufnahmen lassen sich nur begrenzt korrigieren. Im Zweifel schick mir die Dateien vorab, ich schau's mir an.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PREISE & ABLAUF -->
+    <div class="faq-category">
+        <div class="faq-category-title"><i class="fa-solid fa-euro-sign"></i> Preise & Ablauf</div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                Was kosten deine Services?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    Die Preise auf der <a href="/services/">Services-Seite</a> sind Richtwerte — der finale Preis hängt vom Umfang des Projekts ab (Anzahl der Stems, Komplexität, Wunsch-Turnaround etc.). Nach deiner Anfrage bekommst du ein individuelles Angebot.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                Wann und wie bezahle ich?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    Die Zahlung erfolgt <strong>nach Fertigstellung</strong> — erst wenn du die finale Version abgenommen hast. Zahlungsmethoden (Überweisung, PayPal o.ä.) werden individuell abgestimmt. Es gibt keine Vorauszahlung.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                Wie viele Revisionen sind inklusive?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    Das hängt vom gebuchten Service ab — als Richtwert: <strong>Mix: 2 Revisionen, Master: 1–2, Mix & Master: 3 Revisionen</strong>. Darüber hinausgehende Änderungen können individuell abgestimmt werden.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                Wie lange dauert die Bearbeitung?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    In der Regel <strong>2–5 Werktage</strong> — je nach Auftragslage und Komplexität. Wenn du einen konkreten Termin brauchst (z.B. Release-Datum), gib das bei der Anfrage an, ich versuche das zu berücksichtigen.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SONSTIGES -->
+    <div class="faq-category">
+        <div class="faq-category-title"><i class="fa-solid fa-ellipsis"></i> Sonstiges</div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                Kann ich dich als Feature auf meinem Track haben?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    Ja — Feature-Anfragen sind grundsätzlich kostenlos. Schick mir einfach eine Anfrage über die <a href="/kontakt/">Kontaktseite</a> oder direkt über Instagram. Wenn der Vibe stimmt, bin ich dabei. Es besteht kein Anspruch auf Annahme.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                Bleiben meine Rechte am Track bei mir?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    Ja. Die <strong>Rechte an deinen Originalaufnahmen bleiben vollständig bei dir</strong>. Nach Bezahlung erhältst du alle vereinbarten Nutzungsrechte an der fertigen Mischung bzw. dem Master. Ich behalte mir lediglich vor, Ausschnitte als Referenz (Portfolio, Social Media) zu verwenden — sofern du dem nicht widersprichst.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                Was passiert, wenn mir das Ergebnis nicht gefällt?
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-inner">
+                    Dann nutzen wir die enthaltenen Revisionen — ich nehme dein Feedback auf und passe den Mix oder das Master entsprechend an. Mein Ziel ist es, dass du am Ende wirklich happy mit dem Ergebnis bist. Bezahlt wird erst nach finaler Abnahme, also hast du die Kontrolle.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-cta">
+        <p>Deine Frage ist nicht dabei? Schreib mir einfach direkt.</p>
+        <a href="/kontakt/" class="btn" style="padding: 14px 36px; font-size: 1rem;">
+            <i class="fa-solid fa-envelope" style="margin-right: 10px;"></i> Kontakt aufnehmen
+        </a>
+    </div>
+
+</div>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2026 julez166. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/julez166" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@julez.166" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://discord.gg/QxgVmdKx9" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-discord"></i></a>
+        </div>
+        <div class="footer-legal">
+            <a href="/impressum/" class="footer-link">Impressum</a>
+            <a href="/datenschutz/" class="footer-link">Datenschutz</a>
+            <a href="/agb/" class="footer-link">AGB</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function toggleFaq(btn) {
+        const item = btn.closest('.faq-item');
+        const answer = item.querySelector('.faq-answer');
+        const isOpen = item.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-item.open').forEach(el => {
+            el.classList.remove('open');
+            el.querySelector('.faq-answer').style.maxHeight = '0';
+        });
+
+        // Open clicked if it was closed
+        if (!isOpen) {
+            item.classList.add('open');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+    }
+</script>
+</body>
+</html>

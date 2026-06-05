@@ -206,7 +206,7 @@
     </div>
 </div>
 
-<p class="info-note"><i class="fa-solid fa-circle-info"></i> Alle Preise sind Richtwerte — der finale Preis wird individuell abgestimmt.</p>
+<p class="info-note"><i class="fa-solid fa-circle-info"></i> Alle Preise sind Richtwerte — der finale Preis wird individuell abgestimmt, ändert sich aber niemals drastisch.</p>
 
 <div class="cart-bar" id="cartBar">
     <div class="cart-bar-left">
@@ -268,7 +268,8 @@
         bar.classList.add('visible');
         list.innerHTML = items.map(([id, { label }]) => `<span class="cart-chip">${label}<span class="cart-chip-remove" onclick="removeFromCart('${id}')"><i class="fa-solid fa-xmark"></i></span></span>`).join('');
         const sum = items.reduce((acc, [, { price }]) => acc + price, 0);
-        total.textContent = sum > 0 ? `ab ${sum} €` : 'Kostenlos';
+        const hasOnlyFree = items.every(([, { price }]) => price === 0);
+        total.textContent = hasOnlyFree ? 'Kostenlos' : `${sum} €`;
     }
     function goToKontakt() {
         const items = Object.values(cart).map(i => i.label).join(', ');

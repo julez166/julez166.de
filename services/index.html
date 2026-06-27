@@ -67,6 +67,15 @@
     </style>
 </head>
 <body>
+<!-- SEO-Fallback-Navigation für Googlebot (JS-unabhängig, visuell versteckt) -->
+<nav aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">
+    <a href="/">Start</a>
+    <a href="/musik/">Musik</a>
+    <a href="/services/">Services</a>
+    <a href="/ueber-mich/">Über mich</a>
+    <a href="/kontakt/">Kontakt</a>
+    <a href="/faq/">FAQ</a>
+</nav>
 <div id="nav-placeholder"></div>
 <script>
     fetch('/nav.html')

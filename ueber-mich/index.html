@@ -44,6 +44,15 @@
     </style>
 </head>
 <body>
+<!-- SEO-Fallback-Navigation für Googlebot (JS-unabhängig, visuell versteckt) -->
+<nav aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">
+    <a href="/">Start</a>
+    <a href="/musik/">Musik</a>
+    <a href="/services/">Services</a>
+    <a href="/ueber-mich/">Über mich</a>
+    <a href="/kontakt/">Kontakt</a>
+    <a href="/faq/">FAQ</a>
+</nav>
 <div id="nav-placeholder"></div>
 <script>
     fetch('/nav.html')
@@ -80,13 +89,10 @@
         <div class="about-text">
             <h2>julez166</h2>
             <p class="subtitle">Artist · Mix & Master Engineer</p>
-
             <p>
                 Musik ist für mich mehr als nur Sound — <strong>es ist Selbstausdruck, Handwerk und Leidenschaft in einem.</strong> Ich mache Musik, weil ich gar nicht anders kann. Weil es der einzige Weg ist, Dinge zu sagen, die sich in Worte allein nicht fassen lassen.
             </p>
-
             <div class="about-divider"></div>
-
             <p>
                 Als Artist kenne ich beide Seiten des Studios: <strong>die kreative und die technische.</strong> Ich weiß, wie es sich anfühlt, wenn ein Track noch nicht das widerspiegelt, was man im Kopf hat — und ich weiß, wie man das ändert. Dieses Verständnis ist der Kern von dem, was ich als <strong>Mix & Master Engineer</strong> mitbringe.
             </p>
@@ -96,9 +102,7 @@
             <p>
                 Meine Services sind deshalb kein Standard-Angebot. <strong>Ich arbeite mit dir, nicht nur für dich.</strong> Ziel ist immer dasselbe: dein Sound soll klingen, wie du klingst — nur auf dem nächsten Level.
             </p>
-
             <div class="about-divider"></div>
-
             <div class="about-facts">
                 <div class="about-fact">
                     <i class="fa-solid fa-sliders"></i>
@@ -109,13 +113,11 @@
                     <span><strong>Mastering</strong> — LUFS-konform, streaming-ready für Spotify, Apple Music und Co.</span>
                 </div>
             </div>
-
             <div class="about-tags">
                 <span class="about-tag">Mix & Mastering</span>
                 <span class="about-tag">Independent Artist</span>
                 <span class="about-tag">Rap / Trap / R&B</span>
             </div>
-
             <a href="/kontakt/" class="btn" style="margin-top: 32px; display: inline-block;">
                 <i class="fa-solid fa-envelope" style="margin-right: 8px;"></i> Projekt anfragen
             </a>

@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="/style.css">
     <style>
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; max-width: 1000px; margin: 50px auto 30px; padding: 0 20px; }
-        .service-card { background: #0e0e0e; border: 1px solid #1e1e1e; border-radius: 16px; padding: 32px 24px; display: flex; flex-direction: column; gap: 14px; position: relative; transition: border-color 0.3s, transform 0.3s; }
+        .service-card { background: #0e0e0e; border: 1px solid #1e1e1e; border-radius: 16px; padding: 32px 24px; display: flex; flex-direction: column; gap: 14px; position: relative; transition: border-color 0.3s, transform 0.3s; scroll-margin-top: 140px; }
         .service-card:hover { border-color: #333; transform: translateY(-3px); }
         .service-card.featured { border-color: var(--accent); }
         .service-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #000; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; white-space: nowrap; }
@@ -94,6 +94,18 @@
                     link.classList.add('active');
                 }
             });
+            // Falls per Anchor auf diese Seite gesprungen wurde: Position anhand der
+            // tatsächlichen Nav-Höhe neu berechnen, damit nichts (z.B. Badges) abgeschnitten wird
+            if (window.location.hash) {
+                const target = document.querySelector(window.location.hash);
+                if (target) {
+                    requestAnimationFrame(() => {
+                        const navHeight = document.getElementById('nav-placeholder').offsetHeight || 0;
+                        const targetTop = target.getBoundingClientRect().top + window.scrollY;
+                        window.scrollTo({ top: targetTop - navHeight - 24, behavior: 'instant' });
+                    });
+                }
+            }
         });
 </script>
 

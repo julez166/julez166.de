@@ -78,6 +78,18 @@
 </nav>
 <div id="nav-placeholder"></div>
 <script>
+    // Zusätzlicher Scroll-Puffer nach unten (in px). Höherer Wert = weiter runter scrollen.
+    // Bei Bedarf hier einfach die Zahl anpassen, bis der Sprung genau passt.
+    const EXTRA_SCROLL_OFFSET = 120;
+
+    function scrollToHashWithOffset() {
+        if (!window.location.hash) return;
+        const target = document.querySelector(window.location.hash);
+        if (!target) return;
+        const navHeight = document.getElementById('nav-placeholder').offsetHeight || 0;
+        const targetTop = target.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: targetTop - navHeight + EXTRA_SCROLL_OFFSET, behavior: 'instant' });
+    }
     fetch('/nav.html')
         .then(res => res.text())
         .then(html => {
@@ -94,19 +106,9 @@
                     link.classList.add('active');
                 }
             });
-            // Falls per Anchor auf diese Seite gesprungen wurde: Position anhand der
-            // tatsächlichen Nav-Höhe neu berechnen, damit nichts (z.B. Badges) abgeschnitten wird
-            if (window.location.hash) {
-                const target = document.querySelector(window.location.hash);
-                if (target) {
-                    requestAnimationFrame(() => {
-                        const navHeight = document.getElementById('nav-placeholder').offsetHeight || 0;
-                        const targetTop = target.getBoundingClientRect().top + window.scrollY;
-                        window.scrollTo({ top: targetTop - navHeight - 24, behavior: 'instant' });
-                    });
-                }
-            }
+            requestAnimationFrame(scrollToHashWithOffset);
         });
+    window.addEventListener('load', () => requestAnimationFrame(scrollToHashWithOffset));
 </script>
 
 <header class="hero-small">

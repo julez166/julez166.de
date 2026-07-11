@@ -156,6 +156,21 @@
 </div>
 
 <div class="services-grid page-bottom-pad">
+    <div class="service-card featured" id="card-freemix">
+        <div class="service-badge">🎁 Neukunden-Angebot</div>
+        <div class="service-icon"><i class="fa-solid fa-gift"></i></div>
+        <h3>Erstes Mix & Master</h3>
+        <div class="price">Kostenlos <span class="free-badge">gratis</span></div>
+        <hr class="service-divider">
+        <p>Ich sammle aktuell Referenzen — dein erstes Mix & Master ist komplett kostenlos, wenn ich den fertigen Track danach als Referenz nutzen darf.</p>
+        <ul class="service-features">
+            <li><i class="fa-solid fa-check"></i> Bis zu 30 Stems</li>
+            <li><i class="fa-solid fa-check"></i> Keine Längenbegrenzung</li>
+            <li><i class="fa-solid fa-check"></i> Einmalig — nur beim ersten Track</li>
+            <li><i class="fa-solid fa-check"></i> Bedingung: Freigabe als Referenz</li>
+        </ul>
+        <button class="add-to-cart-btn" onclick="toggleCart('freemix', 'Erstes Mix & Master (gratis)', 0, this)"><i class="fa-solid fa-cart-plus"></i> Jetzt sichern</button>
+    </div>
     <div class="service-card" id="card-feature">
         <div class="service-icon"><i class="fa-solid fa-microphone-lines"></i></div>
         <h3>Feature</h3>
@@ -215,7 +230,7 @@
     </div>
 </div>
 
-<p class="info-note"><i class="fa-solid fa-circle-info"></i> Alle Preise sind Richtwerte — der finale Preis wird individuell abgestimmt, ändert sich aber niemals drastisch.</p>
+<p class="info-note"><i class="fa-solid fa-circle-info"></i> Alle Preise sind Richtwerte — der finale Preis wird individuell abgestimmt, ändert sich aber niemals drastisch. Das Gratis-Angebot gilt einmalig pro Artist und setzt die Freigabe als Referenz voraus.</p>
 
 <div class="cart-bar" id="cartBar">
     <div class="cart-bar-left">
@@ -250,7 +265,7 @@
         if (cart[id]) {
             delete cart[id];
             btn.classList.remove('in-cart');
-            btn.innerHTML = id === 'feature' ? '<i class="fa-solid fa-cart-plus"></i> Anfragen' : '<i class="fa-solid fa-cart-plus"></i> In den Warenkorb';
+            btn.innerHTML = id === 'feature' ? '<i class="fa-solid fa-cart-plus"></i> Anfragen' : (id === 'freemix' ? '<i class="fa-solid fa-cart-plus"></i> Jetzt sichern' : '<i class="fa-solid fa-cart-plus"></i> In den Warenkorb');
         } else {
             cart[id] = { label, price };
             btn.classList.add('in-cart');
@@ -264,7 +279,7 @@
         const btn = document.querySelector(`#card-${id} .add-to-cart-btn`);
         if (btn) {
             btn.classList.remove('in-cart');
-            btn.innerHTML = id === 'feature' ? '<i class="fa-solid fa-cart-plus"></i> Anfragen' : '<i class="fa-solid fa-cart-plus"></i> In den Warenkorb';
+            btn.innerHTML = id === 'feature' ? '<i class="fa-solid fa-cart-plus"></i> Anfragen' : (id === 'freemix' ? '<i class="fa-solid fa-cart-plus"></i> Jetzt sichern' : '<i class="fa-solid fa-cart-plus"></i> In den Warenkorb');
         }
         updateCartBar();
     }

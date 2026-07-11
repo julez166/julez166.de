@@ -35,6 +35,13 @@
       ]
     }
     </script>
+    <style>
+        .promo-banner { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; max-width: 640px; margin: 0 auto; padding: 12px 22px; border: 1px solid var(--accent); border-radius: 30px; background: rgba(0, 242, 255, 0.06); color: var(--text-main); font-size: 0.9rem; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+        .promo-banner:hover { background: rgba(0, 242, 255, 0.12); transform: translateY(-2px); }
+        .promo-banner i { color: var(--accent); }
+        .promo-banner strong { color: var(--accent); }
+        .promo-banner-wrap { text-align: center; margin: -10px auto 30px; padding: 0 20px; }
+    </style>
 </head>
 <body>
 
@@ -73,6 +80,14 @@
     <h1>julez166</h1>
     <p>Artist | Mix & Master Engineer</p>
 </section>
+
+<div class="promo-banner-wrap">
+    <a href="services/#card-freemix" class="promo-banner">
+        <i class="fa-solid fa-gift"></i>
+        <span><strong>Dein erstes Mix & Master ist gratis</strong> — jetzt Angebot sichern</span>
+    </a>
+</div>
+
 <div class="container">
     <div class="grid">
         <div class="card">

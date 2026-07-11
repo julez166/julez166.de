@@ -22,6 +22,20 @@
     <link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="/style.css">
+    <style>
+        select#serviceField {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300f2ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            background-size: 18px;
+            cursor: pointer;
+        }
+        select#serviceField:invalid { color: #777; }
+        select#serviceField option { background: #111; color: white; }
+    </style>
 </head>
 <body>
 <!-- SEO-Fallback-Navigation für Googlebot (JS-unabhängig, visuell versteckt) -->
@@ -71,7 +85,15 @@
             </div>
             <div style="margin-bottom: 20px;">
                 <label style="display: block; color: var(--accent); margin-bottom: 5px;">Gewünschter Service</label>
-                <input type="text" name="service" id="serviceField" placeholder="z.B. Mix & Master" style="width: 100%; padding: 12px; background: #111; border: 1px solid #333; color: white; border-radius: 8px;">
+                <select name="service" id="serviceField" required style="width: 100%; padding: 12px; background: #111; border: 1px solid #333; color: white; border-radius: 8px;">
+                    <option value="" disabled selected hidden>Bitte auswählen...</option>
+                    <option value="Feature">Feature</option>
+                    <option value="Mix">Mix</option>
+                    <option value="Master">Master</option>
+                    <option value="Mix & Master">Mix & Master</option>
+                    <option value="Erstes Mix & Master (gratis)">Erstes Mix & Master (gratis)</option>
+                    <option value="Sonstiges">Sonstiges</option>
+                </select>
             </div>
             <div style="margin-bottom: 20px;">
                 <label style="display: block; color: var(--accent); margin-bottom: 5px;">Deine Nachricht</label>
@@ -99,7 +121,21 @@
 <script>
     const params = new URLSearchParams(window.location.search);
     const service = params.get('service');
-    if (service) document.getElementById('serviceField').value = service;
+    if (service) {
+        const select = document.getElementById('serviceField');
+        const options = Array.from(select.options).map(o => o.value);
+        if (options.includes(service)) {
+            select.value = service;
+        } else {
+            // Mehrere Services ausgewählt (z.B. "Mix, Master") oder unbekannter Wert:
+            // Dropdown auf "Sonstiges" setzen und Auswahl in der Nachricht ergänzen
+            select.value = 'Sonstiges';
+            const messageField = document.querySelector('textarea[name="message"]');
+            if (messageField) {
+                messageField.value = `Gewünschte Services: ${service}\n\n`;
+            }
+        }
+    }
 </script>
 </body>
 </html>

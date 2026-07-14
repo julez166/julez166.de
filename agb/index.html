@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>julez166 | AGB</title>
+    <meta name="description" content="Allgemeine Geschäftsbedingungen von julez166 – Artist, Mix & Master Engineer.">
     <meta property="og:title" content="julez166 | AGB">
     <meta property="og:description" content="Allgemeine Geschäftsbedingungen von julez166 – Artist, Mix & Master Engineer.">
     <meta property="og:image" content="https://julez166.de/og-image.png?v=2">
@@ -19,7 +20,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- PERFORMANCE FIX: Font Awesome non-blocking laden (preload + async apply) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+
     <link rel="stylesheet" href="/style.css">
     <style>
         .privacy-content { max-width: 900px; margin: 60px auto; padding: 40px; background: #111; border-radius: 16px; border: 1px solid #222; }
@@ -32,6 +37,15 @@
     </style>
 </head>
 <body>
+<!-- SEO-Fallback-Navigation für Googlebot (JS-unabhängig, visuell versteckt) -->
+<nav aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">
+    <a href="/">Start</a>
+    <a href="/musik/">Musik</a>
+    <a href="/services/">Services</a>
+    <a href="/ueber-mich/">Über mich</a>
+    <a href="/kontakt/">Kontakt</a>
+    <a href="/faq/">FAQ</a>
+</nav>
 <div id="nav-placeholder"></div>
 <script>
     fetch('/nav.html')
@@ -115,10 +129,4 @@
         </div>
         <div class="footer-legal">
             <a href="/impressum/" class="footer-link">Impressum</a>
-            <a href="/datenschutz/" class="footer-link">Datenschutz</a>
-            <a href="/agb/" class="footer-link">AGB</a>
-        </div>
-    </div>
-</footer>
-</body>
-</html>
+            <a href="/datenschutz/"

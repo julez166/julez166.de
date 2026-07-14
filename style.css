@@ -1,5 +1,26 @@
 /* 1. SETUP & FONTS */
-/* PERFORMANCE FIX: @import entfernt — Google Font wird jetzt direkt im <head> der HTML geladen (siehe index.html) */
+/* DATENSCHUTZ-FIX: Inter-Schriftart lokal gehostet statt von Google-Servern geladen — kein externer Request, keine IP-Übertragung an Google */
+@font-face {
+    font-display: swap;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    src: url('/fonts/inter-v20-latin-300.woff2') format('woff2');
+}
+@font-face {
+    font-display: swap;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/inter-v20-latin-regular.woff2') format('woff2');
+}
+@font-face {
+    font-display: swap;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/fonts/inter-v20-latin-700.woff2') format('woff2');
+}
 
 :root {
     --bg-dark: #0a0a0a;

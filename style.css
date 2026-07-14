@@ -1,5 +1,5 @@
 /* 1. SETUP & FONTS */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+/* PERFORMANCE FIX: @import entfernt — Google Font wird jetzt direkt im <head> der HTML geladen (siehe index.html) */
 
 :root {
     --bg-dark: #0a0a0a;
@@ -92,7 +92,7 @@ nav a.active {
     align-items: center;
     background:
         linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
-        url('background.jpg');
+        url('background.webp');
     background-size: cover;
     background-position: center;
     border-bottom: 2px solid var(--accent);

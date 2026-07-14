@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>julez166 | 404 – Nicht gefunden</title>
+    <meta name="robots" content="noindex">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <!-- PERFORMANCE FIX: Font Awesome non-blocking laden (preload + async apply) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+
+    <link rel="stylesheet" href="/style.css">
 
     <style>
         .error-section {
@@ -145,17 +149,14 @@
 </head>
 <body>
 
-<nav>
-    <a href="/" style="text-decoration: none;">
-        <img src="logo.png" alt="julez166" class="logo-img">
-    </a>
-    <ul>
-        <li><a href="musik/">Musik</a></li>
-        <li><a href="services/">Services</a></li>
-        <li><a href="kontakt/">Kontakt</a></li>
-        <li><a href="ueber-mich/">Über mich</a></li>
-    </ul>
-</nav>
+<div id="nav-placeholder"></div>
+<script>
+    fetch('/nav.html')
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById('nav-placeholder').innerHTML = html;
+        });
+</script>
 
 <section class="error-section">
     <div class="error-glow"></div>
@@ -167,7 +168,7 @@
         <a href="/" class="btn">
             <i class="fa-solid fa-house" style="margin-right: 8px;"></i> Zurück zur Startseite
         </a>
-        <a href="kontakt/" class="btn-ghost">
+        <a href="/kontakt/" class="btn-ghost">
             <i class="fa-solid fa-envelope" style="margin-right: 8px;"></i> Kontakt
         </a>
     </div>
@@ -177,14 +178,14 @@
     <div class="footer-content">
         <p>&copy; 2026 julez166. All rights reserved.</p>
         <div class="social-links">
-            <a href="https://www.instagram.com/julez.166" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.instagram.com/julez166" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://www.tiktok.com/@julez.166" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-tiktok"></i></a>
             <a href="https://discord.gg/QxgVmdKx9" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-discord"></i></a>
         </div>
         <div class="footer-legal">
-            <a href="impressum/" class="footer-link">Impressum</a>
-            <a href="datenschutz/" class="footer-link">Datenschutz</a>
-            <a href="agb/" class="footer-link">AGB</a>
+            <a href="/impressum/" class="footer-link">Impressum</a>
+            <a href="/datenschutz/" class="footer-link">Datenschutz</a>
+            <a href="/agb/" class="footer-link">AGB</a>
         </div>
     </div>
 </footer>

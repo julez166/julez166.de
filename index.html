@@ -60,12 +60,12 @@
 <body>
 <!-- SEO-Fallback-Navigation für Googlebot (JS-unabhängig, visuell versteckt) -->
 <nav aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">
-<a href="/">Start</a>
-<a href="/musik/">Musik</a>
-<a href="/services/">Services</a>
-<a href="/ueber-mich/">Über mich</a>
-<a href="/kontakt/">Kontakt</a>
-<a href="/faq/">FAQ</a>
+<a href="/" tabindex="-1">Start</a>
+<a href="/musik/" tabindex="-1">Musik</a>
+<a href="/services/" tabindex="-1">Services</a>
+<a href="/ueber-mich/" tabindex="-1">Über mich</a>
+<a href="/kontakt/" tabindex="-1">Kontakt</a>
+<a href="/faq/" tabindex="-1">FAQ</a>
 </nav>
 <div id="nav-placeholder"></div>
 <script>
@@ -87,6 +87,7 @@ link.classList.add('active');
 });
 });
 </script>
+<main>
 <section class="hero">
 <h1>julez166</h1>
 <p>Artist | Mix & Master Engineer</p>
@@ -101,23 +102,24 @@ link.classList.add('active');
 <div class="container">
 <div class="grid">
 <div class="card">
-<h3>Mix & Mastering</h3>
+<h2>Mix & Mastering</h2>
 <p>Professioneller Sound für deine Tracks. Als Artist weiß ich: Ein guter Mix entscheidet, ob der Vibe rüberkommt oder nicht. Ich sorge für die nötige Tiefe und ein Master, das zum Industrie-Standard wird. Kein Standard-Preset, sondern individuelles Fine-Tuning für deinen Style.</p>
 <a href="kontakt/" class="btn" style="display: block; text-align: center;">Jetzt Projekt besprechen</a>
 </div>
 <div class="card" id="Musik">
-<h3>Meine Musik</h3>
+<h2>Meine Musik</h2>
 <p>Erhalte einen Einblick in meinen Sound – direkt über meine neuesten Releases. So bekommst du direkt einen Eindruck davon, wie ich arbeite.</p>
 <a href="musik/" class="btn" style="display: block; text-align: center;">Zur Musik</a>
 </div>
 </div>
 <div style="text-align: center; margin-top: 40px; padding-bottom: 60px;">
-<h3 style="color: var(--text-dim); margin-bottom: 20px;">Bereit für den nächsten Schritt?</h3>
+<h2 style="color: var(--text-dim); margin-bottom: 20px;">Bereit für den nächsten Schritt?</h2>
 <a href="kontakt/" class="btn" style="padding: 15px 40px; font-size: 1.1rem;">
 <i class="fa-solid fa-envelope" style="margin-right: 10px;" aria-hidden="true"></i> Projekt jetzt anfragen
 </a>
 </div>
 </div>
+</main>
 <footer>
 <div class="footer-content">
 <p>&copy; 2026 julez166. All rights reserved.</p>

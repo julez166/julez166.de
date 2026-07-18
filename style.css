@@ -44,6 +44,13 @@ body {
 }
 
 /* 2. NAVIGATION */
+
+/* PERFORMANCE FIX (CLS): Platz für die Nav reservieren, BEVOR nav.html per fetch() nachlädt.
+   Ohne das springt die ganze Seite beim Nachladen um 80px nach unten -> das war dein CLS-Wert von 0.115 */
+#nav-placeholder {
+    min-height: 80px;
+}
+
 nav {
     display: flex;
     justify-content: space-between;

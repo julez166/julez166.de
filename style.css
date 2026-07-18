@@ -119,6 +119,19 @@ nav a.active {
     border-bottom: 2px solid var(--accent);
 }
 
+/* PERFORMANCE FIX: Auf Mobilgeräten ein kleineres/leichteres Hintergrundbild laden
+   -> lege dazu eine komprimierte Datei "background-mobile.webp" an (z.B. mit squoosh.app,
+   Zielbreite ca. 800px reicht für Handy-Displays) und lade sie in den selben Ordner wie background.webp */
+@media (max-width: 768px) {
+    .hero {
+        background:
+            linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
+            url('background-mobile.webp');
+        background-size: cover;
+        background-position: center;
+    }
+}
+
 .hero h1 {
     font-size: clamp(2.5rem, 8vw, 5rem);
     letter-spacing: 5px;

@@ -1,0 +1,20 @@
+# julez166
+
+> julez166 ist Artist und Mix & Master Engineer. Er bietet professionelles, individuelles Mixing und Mastering für Musikproduktionen an – ohne Standard-Presets, mit Fokus auf einen unverwechselbaren Sound.
+
+julez166 kennt beide Seiten des Studios: als Artist (eigene Musikveröffentlichungen) und als Mix & Master Engineer für andere Künstler. Der Fokus liegt auf Rap, Trap und R&B, mit stem-basiertem Mixing und LUFS-konformem, streaming-fertigem Mastering für Spotify, Apple Music und andere Plattformen.
+
+## Seiten
+
+- [Startseite](https://julez166.de/): Übersicht über Services und aktuelle Musik
+- [Musik](https://julez166.de/musik/): Neueste Releases von julez166
+- [Services](https://julez166.de/services/): Details zu Mixing- und Mastering-Angeboten, inkl. kostenlosem Erst-Mix für Neukunden
+- [Über mich](https://julez166.de/ueber-mich/): Hintergrund und Arbeitsweise von julez166
+- [Kontakt](https://julez166.de/kontakt/): Kontaktmöglichkeiten für Projektanfragen
+- [FAQ](https://julez166.de/faq/): Häufig gestellte Fragen zu Mixing & Mastering
+
+## Rechtliches
+
+- [Impressum](https://julez166.de/impressum/)
+- [Datenschutz](https://julez166.de/datenschutz/)
+- [AGB](https://julez166.de/agb/)

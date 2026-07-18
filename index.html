@@ -21,11 +21,15 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="manifest" href="/site.webmanifest">
 
-<!-- PERFORMANCE FIX: LCP-Hintergrundbild vorladen, damit der Browser es sofort holt -->
-<link rel="preload" as="image" href="/background.webp">
+<!-- PERFORMANCE FIX: LCP-Hintergrundbild vorladen — jetzt mit media-Attribut,
+     damit Mobilgeräte NICHT die große Desktop-Datei mit-vorladen (war der Haupt-LCP-Bug) -->
+<link rel="preload" as="image" href="/background.webp" media="(min-width: 769px)">
+<link rel="preload" as="image" href="/background-mobile.webp" media="(max-width: 768px)">
 
-<!-- PERFORMANCE FIX: Haupt-Schriftschnitt vorladen, damit sie nicht erst nach dem CSS-Parsing angefordert wird -->
+<!-- PERFORMANCE FIX: Haupt-Schriftschnitte vorladen, damit sie nicht erst nach dem CSS-Parsing angefordert werden.
+     700 (bold) zusätzlich, weil der Hero-<h1> per Browser-Standard fett gerendert wird -->
 <link rel="preload" href="/fonts/inter-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-v20-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 
 <!-- PERFORMANCE FIX: Font Awesome non-blocking laden (preload + async apply) -->
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
